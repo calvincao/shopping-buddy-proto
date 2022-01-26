@@ -9,7 +9,6 @@
     "build": "webpack",
     "dev": "webpack serve --open"
   },
-  "proxy": "http://localhost:3000",
   "keywords": [],
   "author": "Calvin Cao https://github.com/calvincao",
   "license": "ISC",
@@ -17,6 +16,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "font-awesome": "^4.7.0",
     "react": "^17.0.2",

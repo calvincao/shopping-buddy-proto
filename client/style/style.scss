@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
 * {
   background-color: beige;
   font-size: 18px;
+  font-family: 'Kalam', cursive;
 }
 
 ul{
   list-style-type:none;
+  padding: 0;
 }
 
 .finish{
@@ -12,9 +16,27 @@ ul{
   color: #999;
 }
 
+.btn-add{
+  border-radius: 10px;
+  border: none;
+  width: 30px;
+  background-color: rgba(120, 190, 87, 0.75);
+  font-weight: 600;
+}
+
+.text-input{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.text-input:focus{
+  outline:none;
+}
+
 .title{
   font-size: 40px;
   border: none;
+  width: 100%;
   margin-bottom: 20px;
 }
 
