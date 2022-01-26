@@ -1,0 +1,23 @@
+* {
+  background-color: beige;
+  font-size: 18px;
+}
+
+ul{
+  list-style-type:none;
+}
+
+.finished{
+  text-decoration: line-through;
+  color: #888;
+}
+
+.title{
+  font-size: 40px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.title:focus{
+  outline: none;
+}
