@@ -1,8 +1,12 @@
 import React from "react";
 
 const ListItem = (props) => {
+  const finish = props.item.finish;
   return (
-    <li className="list-item" onClick={props.toggleFinish}>{props.item}</li>
+    <li
+      className={finish ? "list-item finish" : "list-item"}
+      onClick={props.toggleFinish}>{props.item.name}
+    </li>
   )
 }
 

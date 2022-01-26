@@ -8,22 +8,42 @@ class App extends Component {
     super(props);
     this.state = {
       title: `Shopping List (${new Date().toLocaleDateString('en-US')})`,
-      groceryList: ['tomatos', 'zuchini', 'cabbage', 'bread']
+      groceryList: [
+        { name: 'tomatos', finish: true },
+        { name: 'zuchini', finish: false },
+        { name: 'cabbage', finish: false }
+      ]
     };
     this.handleAdd = this.handleAdd.bind(this);
     this.toggleFinish = this.toggleFinish.bind(this);
   }
   toggleFinish(e) {
-    console.log('hi')
-  }
-  handleAdd(e) {
-    const userInput = e.target.form[0].value;
-    const updatedGroceryList = [...this.state.groceryList, userInput];
-    e.preventDefault();
+    const food = e.target.innerText;
+    const updatedGroceryList = [];
+    for (const item of this.state.groceryList) {
+      if (item.name == food) {
+        updatedGroceryList.push({ name: item.name, finish: !item.finish })
+      }
+      else {
+        updatedGroceryList.push(item)
+      }
+    }
     this.setState({
       ...this.state,
       groceryList: updatedGroceryList
     })
+  }
+
+  handleAdd(e) {
+    const userInput = e.target.form[0].value;
+    e.preventDefault();
+    if (userInput) {
+      const updatedGroceryList = [...this.state.groceryList, { name: userInput, finish: false }];
+      this.setState({
+        ...this.state,
+        groceryList: updatedGroceryList
+      })
+    }
   }
 
   render() {
@@ -31,7 +51,7 @@ class App extends Component {
       <div>
         <Title title={this.state.title}></Title>
         <Input handleAdd={this.handleAdd}></Input>
-        <List groceryList={this.state.groceryList} toggleFinish={this.state.toggleFinish}></List>
+        <List groceryList={this.state.groceryList} toggleFinish={this.toggleFinish}></List>
       </div>
     );
   }

@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js",
+    "start": "nodemon server/server.js",
     "build": "webpack",
     "dev": "webpack serve --open"
   },
+  "proxy": "http://localhost:3000",
   "keywords": [],
   "author": "Calvin Cao https://github.com/calvincao",
   "license": "ISC",
