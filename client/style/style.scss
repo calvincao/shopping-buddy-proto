@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+
+$primary-black: #101010;
+$secondary-black: #282828;
+$light-grey: 	#d8d8d8;
+$super-light-grey: #F5F5F5;
 
 * {
   background-color: beige;
@@ -32,14 +39,60 @@ ul{
 .text-input:focus{
   outline:none;
 }
-
-.title{
-  font-size: 40px;
-  border: none;
-  width: 100%;
-  margin-bottom: 20px;
+.groceryList {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .title{
+    font-size: 40px;
+    text-align: center;
+    border: none;
+    width: auto;
+    margin-bottom: 20px;
+  }
 }
 
 .title:focus{
   outline: none;
+}
+
+.card-container{
+  display: grid;
+  grid-template: auto / repeat(5, minmax(280px, 18%));
+  grid-template-rows: auto;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 20px;
+  
+  .card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    border: 1px solid $light-grey;
+    background-color: $light-grey;
+    padding: 3.2%;
+
+    .recipe-title{
+      font-family: 'Sawarabi Mincho', serif;
+      background-color: $light-grey;
+      color: $primary-black;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 700;
+      width: 100%;
+    }
+    .missing-ingredients, .used-ingredients, .missing-ingredients b, .used-ingredients b{
+      background-color: $light-grey;
+      font-family: 'Sawarabi Mincho', serif;
+      font-size: 0.85em;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }

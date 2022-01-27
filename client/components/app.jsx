@@ -8,11 +8,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: `Shopping List (${new Date().toLocaleDateString('en-US')})`,
+      title: 'Shopping List',
       groceryList: [
-        { name: 'ham', finish: true },
-        { name: 'zuchini', finish: false },
-        { name: 'cabbage', finish: false }
+        { name: 'ground beef', finish: false },
+        { name: 'cabbage', finish: false },
+        { name: 'flour', finish: false }
       ],
       recipeList: []
     };
@@ -20,18 +20,24 @@ class App extends Component {
     this.toggleFinish = this.toggleFinish.bind(this);
     this.fetchRecipes = this.fetchRecipes.bind(this);
   }
+
   fetchRecipes(e) {
     e.preventDefault();
-    console.log('clicked recipe button')
     const ingredients = this.state.groceryList.map(element => element.name)
     fetch('http://localhost:3000/recipes', {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
-      body: { ingredients }
-    }).then(res => res.json())
-      .then((data) => {
-        console.log(data)
+      body: JSON.stringify(ingredients)
+    }).then(res => {
+      return res.json()
+    }).then(data => {
+      const newRecipeList = [...data.recipes];
+      this.setState({
+        ...this.state,
+        recipeList: newRecipeList
       })
+      console.log(this.state);
+    })
       .catch(e => {
         console.log('error fetching recipes')
       })
@@ -67,13 +73,14 @@ class App extends Component {
     e.target.form[0].value = '';
   }
 
-
   render() {
     return (
       <div>
-        <Title title={this.state.title}></Title>
-        <Input handleAdd={this.handleAdd}></Input>
-        <List groceryList={this.state.groceryList} toggleFinish={this.toggleFinish}></List>
+        <div className="groceryList">
+          <Title title={this.state.title}></Title>
+          <Input handleAdd={this.handleAdd}></Input>
+          <List groceryList={this.state.groceryList} toggleFinish={this.toggleFinish}></List>
+        </div>
         <Recipe recipeList={this.state.recipeList} fetchRecipes={this.fetchRecipes}></Recipe>
       </div>
     );
