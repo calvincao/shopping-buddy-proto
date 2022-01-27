@@ -7,16 +7,17 @@ const Recipe = props => {
     const usedIngredients = recipe.usedIngredients.map(ingredient => ingredient.name);
     list.push(
       <div className="card">
-        <div className="recipe-title">{recipe.title}</div>
+        <h1 className="recipe-title">{recipe.title}</h1>
         <img src={recipe.image} />
-        <div className="missing-ingredients"><b>Missing Ingredients: </b>{missingIngredients.join(', ')}</div>
-        <div className="used-ingredients"><b>Used Ingredients: </b>{usedIngredients.join(', ')}</div>
+        <div className="used-ingredients"><b>Used Ingredients: </b><span>{usedIngredients.join(', ')}</span></div>
+        <div className="missing-ingredients"><b>Missing Ingredients: </b><span>{missingIngredients.join(', ')}</span></div>
+        <button type="button" className="btn-ingredients" onClick={props.addMissing}>Add Missing Ingredients</button>
       </div>
     )
   }
   return (
-    <div>
-      <button type="button" onClick={props.fetchRecipes}>Get Recipes!</button>
+    <div className="recipe-container">
+      <button className="btn-recipe" type="button" onClick={props.fetchRecipes}>Get Recipes!</button>
       <div className="card-container">
         {list}
       </div>

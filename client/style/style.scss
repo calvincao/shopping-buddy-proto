@@ -1,44 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Convergence&display=swap');
 
 $primary-black: #101010;
 $secondary-black: #282828;
 $light-grey: 	#d8d8d8;
 $super-light-grey: #F5F5F5;
+$honeydew: #edfeec;
+$slate: #cfded9;
+$blue-y: #4272ac;
+$blue-x: #265288;
+$green-add: #5aaf97;
+$green-add-hover: #079e73;
+$red-orange: #ff5c5f;
 
 * {
-  background-color: beige;
+  background-color: $honeydew;
   font-size: 18px;
   font-family: 'Kalam', cursive;
+  text-decoration: none;
 }
 
-ul{
-  list-style-type:none;
-  padding: 0;
-}
 
-.finish{
-  text-decoration: line-through;
-  color: #999;
-}
 
-.btn-add{
-  border-radius: 10px;
-  border: none;
-  width: 30px;
-  background-color: rgba(120, 190, 87, 0.75);
-  font-weight: 600;
-}
 
-.text-input{
-  border-top: none;
-  border-left: none;
-  border-right: none;
-}
-.text-input:focus{
-  outline:none;
-}
+
+
+
 .groceryList {
   margin-top: 50px;
   display: flex;
@@ -52,47 +40,108 @@ ul{
     width: auto;
     margin-bottom: 20px;
   }
+  ul{
+    list-style-type:none;
+    padding: 0;
+  }
+  .text-input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .title:focus, .text-input:focus{
+    outline: none;
+  }
+  .btn-add{
+  border-radius: 10px;
+  border: none;
+  width: 30px;
+  background-color: $green-add;
+  font-weight: 600;
+  }
+  .btn-add:hover{
+    background-color: $green-add-hover;
+    transition-duration: 250ms;
+  }
+  .finish{
+    text-decoration: line-through;
+    color: #999;
+  }
 }
 
-.title:focus{
-  outline: none;
-}
-
-.card-container{
-  display: grid;
-  grid-template: auto / repeat(5, minmax(280px, 18%));
-  grid-template-rows: auto;
-  justify-content: center;
-  margin-top: 25px;
-  gap: 20px;
-  
-  .card{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    border: 1px solid $light-grey;
-    background-color: $light-grey;
-    padding: 3.2%;
-
-    .recipe-title{
-      font-family: 'Sawarabi Mincho', serif;
-      background-color: $light-grey;
-      color: $primary-black;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-weight: 700;
-      width: 100%;
-    }
-    .missing-ingredients, .used-ingredients, .missing-ingredients b, .used-ingredients b{
-      background-color: $light-grey;
-      font-family: 'Sawarabi Mincho', serif;
-      font-size: 0.85em;
-    }
-    img {
-      width: 100%;
-      height: auto;
+.recipe-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .btn-recipe {
+    font-size: 1.15em;
+    font-family: 'Convergence', sans-serif;
+    background-color: $red-orange;
+    color: white;
+    border:none;
+    border-radius: 7px;
+    padding: 5px 12px;
+    margin-top: 10px;
+    box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+  }
+  .btn-recipe:hover{
+    background-color: red;
+    transition-duration: 250ms;
+  }
+  .card-container{
+    display: grid;
+    grid-template: auto / repeat(5, minmax(280px, 18%));
+    grid-template-rows: auto;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 20px;
+    .card{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      background-color: $slate;
+      padding: 3.2%;
+      border-radius: 7px;
+      box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+      padding-bottom: 25px;
+      
+      .recipe-title{
+        font-family: 'Sawarabi Mincho', serif;
+        background-color: $slate;
+        color: $primary-black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.15em;
+        width: 100%;
+      }
+      .missing-ingredients, .used-ingredients, .missing-ingredients span, .used-ingredients span, .missing-ingredients b, .used-ingredients b{
+        background-color: $slate;
+        font-family: 'Sawarabi Mincho', serif;
+        font-size: 0.85em;
+        margin-top: 15px;
+      }
+      .btn-ingredients {
+        font-size: 0.70em;
+        font-family: 'Convergence', sans-serif;
+        border: none;
+        background-color: $blue-y;
+        color: white;
+        border-radius: 7px;
+        padding: 5px 12px;
+        margin-top: 10px;
+        box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+      }
+      .btn-ingredients:hover{
+        background-color: $blue-x;
+        transition-duration: 250ms;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 7px;
+      }
     }
   }
 }
