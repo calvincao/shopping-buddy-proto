@@ -178,17 +178,20 @@ class App extends Component {
     this.addMissing = this.addMissing.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
   }
+
   handleRemove(e) {
     const target = e.target.parentElement.children[1].innerText;
-    const updatedGroceryList = [];
-    for (const ingredient of this.state.groceryList) {
-      if (ingredient.name !== target) updatedGroceryList.push(ingredient)
-    };
-    console.log(updatedGroceryList)
+    console.log(target)
+    const updatedGroceryList = this.state.groceryList.filter(ingredient => ingredient.name != target)
+    // this.state = {
+    //   ...this.state,
+    //   groceryList: updatedGroceryList
+    // }
     this.setState({
       ...this.state,
       groceryList: updatedGroceryList
-    })
+    });
+
   }
 
   addMissing(e) {

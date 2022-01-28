@@ -59,10 +59,6 @@ $red-orange: #ff5c5f;
   padding: 0.4% 7%;
 }
 
-
-
-
-
 .groceryList {
   margin-top: 50px;
   display: flex;
@@ -79,6 +75,9 @@ $red-orange: #ff5c5f;
   ul{
     list-style-type:none;
     padding: 0;
+    .remove{
+      color: red;
+    }
   }
   .text-input{
     border-top: none;
