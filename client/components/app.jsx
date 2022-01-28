@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Shopping Buddy',
+      title: 'My Shopping Buddy',
       groceryList: [
         { name: 'ground beef', finish: false },
         { name: 'cabbage', finish: false },
@@ -176,6 +176,19 @@ class App extends Component {
     this.toggleFinish = this.toggleFinish.bind(this);
     this.fetchRecipes = this.fetchRecipes.bind(this);
     this.addMissing = this.addMissing.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+  handleRemove(e) {
+    const target = e.target.parentElement.children[1].innerText;
+    const updatedGroceryList = [];
+    for (const ingredient of this.state.groceryList) {
+      if (ingredient.name !== target) updatedGroceryList.push(ingredient)
+    };
+    console.log(updatedGroceryList)
+    this.setState({
+      ...this.state,
+      groceryList: updatedGroceryList
+    })
   }
 
   addMissing(e) {
@@ -254,7 +267,8 @@ class App extends Component {
           <Input handleAdd={this.handleAdd}></Input>
           <List
             groceryList={this.state.groceryList}
-            toggleFinish={this.toggleFinish}>
+            toggleFinish={this.toggleFinish}
+            handleRemove={this.handleRemove}>
           </List>
         </div>
         <Recipe

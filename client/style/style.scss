@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Convergence&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap');
 
 $primary-black: #101010;
 $secondary-black: #282828;
@@ -9,9 +10,9 @@ $super-light-grey: #F5F5F5;
 $honeydew: #edfeec;
 $slate: #cfded9;
 $blue-y: #4272ac;
-$blue-x: #265288;
+$blue-x: #2003a4;
 $green-add: #5aaf97;
-$green-add-hover: #079e73;
+$green-add-hover: #00a800;
 $red-orange: #ff5c5f;
 
 * {
@@ -19,9 +20,44 @@ $red-orange: #ff5c5f;
   font-size: 18px;
   font-family: 'Kalam', cursive;
   text-decoration: none;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
-
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $slate;
+  width: 100%;
+  .nav-left {
+    background-color: $slate;
+    font-family: 'DM Serif Text', serif;
+    font-size: 1.5em;
+  }
+  .nav-right{
+    background-color: $slate;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    button {
+      color: white;
+      font-size: 0.7em;
+      border: none;
+      border-radius: 7px;
+      background-color: $blue-y;
+      padding: 0px 15px;
+      box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+      font-family: 'Sawarabi Mincho', serif;
+    }
+    button:hover{
+      background-color: $blue-x;
+      transition-duration: 250ms;
+    }
+  }
+  padding: 0.4% 7%;
+}
 
 
 
