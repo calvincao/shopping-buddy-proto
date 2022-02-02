@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { plugins } = require('../pair-programming/build-tools-module/webpack.config');
 
 module.exports = {
   mode: 'development',
