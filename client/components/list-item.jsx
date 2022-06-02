@@ -1,10 +1,18 @@
 import React from "react";
 
 const ListItem = (props) => {
-  const finish = props.item.finish;
+  function removeItem(e){
+    const targetID = e.target.parentElement.id;
+    props.listRemove(targetID);
+  }
+  function toggleItem(e){
+    const targetID = e.target.parentElement.id;
+    props.toggleDone(targetID);
+  }
   return (
-    <li className={finish ? "list-item finish" : "list-item"} onClick={props.toggleFinish}>
-      <span className="remove" onClick={props.handleRemove}>X </span><span>{props.item.name}</span>
+    <li className={props.done ? "list-item finish" : "list-item"} id={props.ID}>
+      <button className="remove" onClick={removeItem}>X</button>
+      <span onClick={toggleItem}>{props.name}</span>
     </li>
   )
 }

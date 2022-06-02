@@ -1,18 +1,23 @@
 import React from "react";
-import ListItem from './list-item.jsx'
+import ListItem from './List-Item.jsx'
 
-const List = (props) => {
-  const list = [];
-  for (const item of props.groceryList) {
-    list.push(<ListItem
-      item={item}
-      toggleFinish={props.toggleFinish}
-      handleRemove={props.handleRemove}>
-    </ListItem>)
+const List = ({groceryList, toggleDone, listRemove}) => {
+  const ingredientsList = [];
+  for (let i = 0; i < groceryList.length; i++){
+    ingredientsList.push(
+      <ListItem
+        name={groceryList[i]?.name}
+        done={groceryList[i]?.done}
+        toggleDone={toggleDone}
+        listRemove={listRemove}
+        key={i}
+        ID={groceryList[i]?.ID}
+      />
+    )
   }
   return (
     <ul>
-      {list}
+      {ingredientsList}
     </ul>
   )
 }

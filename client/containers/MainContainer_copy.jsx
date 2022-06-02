@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Title from './title.jsx';
-import Input from './input.jsx';
-import List from './list.jsx';
-import Recipe from './recipe.jsx';
-import Navbar from './navbar.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Title from '../components/title.jsx';
+import Input from '../components/Input.jsx';
+import List from '../components/list.jsx';
+import Recipe from './RecipeContainer.jsx';
+import Navbar from '../components/navbar.jsx';
 
-class App extends Component {
+class MainContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -124,4 +125,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default MainContainer;

@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/server.js",
     "build": "webpack",
-    "dev": "webpack serve --open"
+    "webpack": "webpack serve --open",
+    "dev": "concurrently --kill-others \"npm start\" \"npm run webpack\""
   },
   "keywords": [],
   "author": "Calvin Cao https://github.com/calvincao",
@@ -22,6 +23,10 @@
     "node-fetch": "^2.6.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
     "sass": "^1.49.0"
   },
   "devDependencies": {
@@ -29,7 +34,9 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
+    "concurrently": "^7.2.1",
     "css-loader": "^6.5.1",
+    "dotenv": "^16.0.1",
     "html-webpack-plugin": "^5.5.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
