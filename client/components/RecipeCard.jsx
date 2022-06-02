@@ -7,7 +7,7 @@ const RecipeCard = (props) => {
       <img src={props.src} />
       <div className="used-ingredients"><b>Used Ingredients: </b><span>{props.usedIngredients.join(', ')}</span></div>
       <div className="missing-ingredients"><b>Missing Ingredients: </b><span>{props.missingIngredients.join(', ')}</span></div>
-      <button type="button" className="btn-ingredients" onClick={props.addMissing}>Add Missing Ingredients</button>
+      <button type="button" className="btn-ingredients" onClick={() => props.addMissing(props.missingIngredients)}>Add Missing Ingredients</button>
     </div>
   )
 };

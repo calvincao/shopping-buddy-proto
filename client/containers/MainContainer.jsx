@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
   recipeList: state.recipe.list,
   name: state.grocery.title,
   loading: state.recipe.loading,
-  error: state.recipe.error
+  error: state.recipe.error,
+  loggedIn: state.user.loggedIn
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -25,7 +26,9 @@ const mapDispatchToProps = dispatch => ({
 function MainContainer(props) {
   return (
     <div>
-      <Navbar/>
+      <Navbar
+        loggedIn={props.loggedIn}
+      />
       <GroceryList
         groceryList={props.groceryList}
         name={props.name}
@@ -39,6 +42,7 @@ function MainContainer(props) {
         fetchRecipes={props.fetchRecipes}
         loading={props.loading}
         error={props.error}
+        addMissing={props.addMissing}
       />
     </div>
   );

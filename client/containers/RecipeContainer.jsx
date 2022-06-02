@@ -22,7 +22,6 @@ const Recipe = (props) => {
       />
     )
   }
-  console.log(props.loading)
   return (
     <div className="recipe-container">
       <button className="btn-recipe" type="button" onClick={getRecipes}>Get Recipes!</button>

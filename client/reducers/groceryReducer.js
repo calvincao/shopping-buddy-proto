@@ -13,10 +13,7 @@ const groceryReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LIST_ADD: {
       console.log(state);
-      const updatedList = [
-        ...state.list,
-        { name: action.payload, done: false, ID: state.lastID },
-      ];
+      const updatedList = [...state.list, { name: action.payload, done: false, ID: state.lastID }];
       return {
         ...state,
         lastID: state.lastID + 1,
@@ -44,6 +41,21 @@ const groceryReducer = (state = initialState, action) => {
       return {
         ...state,
         list: updatedList,
+      };
+    }
+
+    case types.ADD_MISSING: {
+      const oldItems = [...state.list];
+      let lastID = state.lastID;
+      const newItems = action.payload.map(item => ({
+        name: item,
+        done: false,
+        ID: lastID++
+      }));
+      return {
+        ...state,
+        list: oldItems.concat(newItems),
+        lastID: lastID
       };
     }
 

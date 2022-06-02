@@ -23,14 +23,10 @@ export const fetchRecipes = (ingredients) => {
         ingredients: ingredients,
       })
       .then((res) => {
-        console.log('inside success');
-        console.log(res.data.recipes);
         const recipes = res.data.recipes;
         dispatch(fetchRecipesSuccess(recipes));
       })
       .catch((err) => {
-        console.log('inside error');
-        console.log(err);
         const errMsg = err.message;
         dispatch(fetchRecipesFailure(errMsg));
       });

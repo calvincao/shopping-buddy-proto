@@ -7,7 +7,7 @@ const Navbar = (props) => {
       <span className="nav-right">
         <button>My Lists</button>
         <button>Fav Recipes</button>
-        <button>Log in</button>
+        {props.loggedIn ? <button>Log out</button> : <button>Log in</button>}
       </span>
     </div>
   )
