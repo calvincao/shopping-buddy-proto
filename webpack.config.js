@@ -9,36 +9,34 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html')
-    })
+      template: path.join(__dirname, 'index.html'),
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.jsx?/,
         exclude: path.resolve(__dirname, 'node_modules'),
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }]
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+            },
+          },
+        ],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
-        ]
-      }
-    ]
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   devServer: {
     proxy: {
       '/*': {
-        target: 'http://localhost:3000'
-      }
-    }
-  }
-}
+        target: 'http://localhost:3000',
+      },
+    },
+  },
+};

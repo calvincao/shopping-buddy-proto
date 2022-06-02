@@ -3,19 +3,23 @@ import { connect } from 'react-redux';
 import GroceryList from '../containers/GroceryList.jsx'
 import RecipeContainer from './RecipeContainer.jsx';
 import Navbar from '../components/Navbar.jsx';
-import * as actions from '../actions/actions'
+import * as groceryActions from '../actions/groceryActions'
+import * as recipeActions from '../actions/recipeActions'
 
 const mapStateToProps = state => ({
-  groceryList: state.list.grocery,
-  recipeList: state.list.recipe,
-  name: state.list.title
+  groceryList: state.grocery.list,
+  recipeList: state.recipe.list,
+  name: state.grocery.title,
+  loading: state.recipe.loading,
+  error: state.recipe.error
 })
 
 const mapDispatchToProps = dispatch => ({
-  listAdd: (ingredient) => dispatch(actions.listAdd(ingredient)),
-  listRemove: (ID) => dispatch(actions.listRemove(ID)),
-  toggleDone: (ID) => dispatch(actions.toggleDone(ID)),
-  addMissing: (ingredients) => dispatch(actions.addMissing(ingredients))
+  listAdd: (ingredient) => dispatch(groceryActions.listAdd(ingredient)),
+  listRemove: (ID) => dispatch(groceryActions.listRemove(ID)),
+  toggleDone: (ID) => dispatch(groceryActions.toggleDone(ID)),
+  addMissing: (ingredients) => dispatch(groceryActions.addMissing(ingredients)),
+  fetchRecipes: (ingredients) => dispatch(recipeActions.fetchRecipes(ingredients)),
 })
 
 function MainContainer(props) {
@@ -31,6 +35,10 @@ function MainContainer(props) {
       />
       <RecipeContainer
         recipeList={props.recipeList}
+        groceryList={props.groceryList}
+        fetchRecipes={props.fetchRecipes}
+        loading={props.loading}
+        error={props.error}
       />
     </div>
   );

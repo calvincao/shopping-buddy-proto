@@ -2,12 +2,12 @@ import React from 'react';
 import Title from '../components/Title.jsx';
 import Input from '../components/Input.jsx';
 import List from '../components/List.jsx';
-import { listAdd } from '../actions/actions.js';
+import { listAdd } from '../actions/groceryActions.js';
 
 function GroceryList(props){
   return(
     <div className="groceryList">
-      <Title title={'hello'}/>
+      <Title title={props.name}/>
       <Input listAdd={props.listAdd}/>
       <List
         groceryList={props.groceryList}

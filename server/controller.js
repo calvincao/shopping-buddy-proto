@@ -6,10 +6,10 @@ const API_KEY = process.env.SPOONACULAR_API_KEY;
 const NUM_RECIPES = 10;
 
 controller.getRecipes = async (req, res, next) => {
-  console.log(API_KEY);
-  let queryURL = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&number=${NUM_RECIPES}&ingredients=${req.body.join(
-    ','
-  )}`;
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  await delay(1500);
+  const ingredients = req.body.ingredients.join(',');
+  let queryURL = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${API_KEY}&number=${NUM_RECIPES}&ingredients=${ingredients}`;
   console.log('fetching recipes from Spoonacular using request:\n', queryURL);
   try {
     fetch(queryURL)

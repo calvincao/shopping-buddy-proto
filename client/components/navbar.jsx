@@ -5,8 +5,9 @@ const Navbar = (props) => {
     <div className="navbar">
       <span className="nav-left">Mega Market Shopping Buddy</span>
       <span className="nav-right">
-        <button>Get Lists</button>
-        <button>Save List</button>
+        <button>My Lists</button>
+        <button>Fav Recipes</button>
+        <button>Log in</button>
       </span>
     </div>
   )
